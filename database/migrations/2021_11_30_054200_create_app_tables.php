@@ -31,9 +31,8 @@ class CreateAppTables extends Migration
 
         Schema::create('item_conditions', function (Blueprint $table) {
             $table->id();
-
-            // ここにカラムを追加していく
-
+            $table->string('name');
+            $table->integer('sort_no');
             $table->timestamps();
         });
 
@@ -45,7 +44,8 @@ class CreateAppTables extends Migration
             $table->unsignedBigInteger('item_condition_id');
 
             // ここにカラムを追加していく
-
+            $table->string('name');
+            $table->integer('sort_no');
             $table->timestamps();
 
             $table->foreign('seller_id')->references('id')->on('users');
